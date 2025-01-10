@@ -2,9 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Iceberg&display=swap");
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -327,4 +324,46 @@
 
 .hover\:to-purple-800:hover {
   --tw-gradient-to: #6b21a8;
+}
+
+/* Add these base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Add these styles if not already present */
+.from-\[\#1E1B4B\] {
+  --tw-gradient-from: #1e1b4b;
+  --tw-gradient-stops: var(--tw-gradient-from),
+    var(--tw-gradient-to, rgb(30 27 75 / 0));
+}
+
+.via-\[\#312E81\] {
+  --tw-gradient-via: #312e81;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-via),
+    var(--tw-gradient-to, rgb(49 46 129 / 0));
+}
+
+.to-purple-900 {
+  --tw-gradient-to: #581c87;
+}
+
+.bg-\[\#2563EB\]\/20 {
+  background-color: rgb(37 99 235 / 0.2);
+}
+
+.text-white\/90 {
+  color: rgb(255 255 255 / 0.9);
+}
+
+.bg-white\/10 {
+  background-color: rgb(255 255 255 / 0.1);
 }

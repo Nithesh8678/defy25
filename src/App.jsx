@@ -8,6 +8,7 @@ import {
 import "./App.css";
 import WalletConnect from "./components/WalletConnect";
 import Home from "./components/Home";
+import ReportLostItem from "./components/ReportLostItem";
 
 function App() {
   const [account, setAccount] = useState("");
@@ -18,7 +19,7 @@ function App() {
 
   return (
     <Router>
-      <div className="app">
+      <div className="min-h-screen">
         <Routes>
           <Route
             path="/"
@@ -32,7 +33,7 @@ function App() {
                       Find&Earn
                     </h1>
                   </div>
-                  <div className=" p-8 rounded-lg backdrop-blur-md">
+                  <div className="p-8 rounded-lg backdrop-blur-md">
                     <WalletConnect account={account} setAccount={setAccount} />
                   </div>
                 </div>
@@ -48,6 +49,10 @@ function App() {
                 <Navigate to="/" />
               )
             }
+          />
+          <Route
+            path="/report-lost"
+            element={account ? <ReportLostItem /> : <Navigate to="/" />}
           />
         </Routes>
       </div>
