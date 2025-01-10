@@ -1,8 +1,5 @@
-import Navbar from "./Navbar";
-import { Bell } from "lucide-react";
-import Input from "./ui/Input";
-import Button from "./ui/Button";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const Home = ({ account, onDisconnect }) => {
   if (!account) return null;
@@ -17,31 +14,9 @@ const Home = ({ account, onDisconnect }) => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Content */}
       <div className="relative z-10">
-        <div className="container mx-auto px-4">
-          {/* Header */}
-          <header className="flex items-center justify-between py-4">
-            <div className="text-white text-xl font-semibold font-iceberg">
-              Find&Earn
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="relative max-w-[200px]">
-                <Input
-                  type="text"
-                  placeholder="Search Here"
-                  className="bg-[#2563EB]/20 border-0 text-white placeholder:text-white/70"
-                />
-              </div>
-              <Button variant="ghost" size="icon" className="text-white">
-                <Bell className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-white">
-                <div className="h-8 w-8 rounded-full bg-white/10" />
-              </Button>
-            </div>
-          </header>
+        <div className="container mx-auto px-4 pt-20">
+          <Navbar onDisconnect={onDisconnect} />
 
           {/* Main Content */}
           <main className="relative mt-20 flex min-h-[600px] items-start">
@@ -59,9 +34,11 @@ const Home = ({ account, onDisconnect }) => {
                     Report lost
                   </button>
                 </Link>
-                <button className="bg-purple-600 hover:bg-purple-700 mt-10 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200">
-                  Submit found
-                </button>
+                <Link to="/submit-found">
+                  <button className="bg-purple-600 hover:bg-purple-700 mt-10 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200">
+                    Submit found
+                  </button>
+                </Link>
               </div>
             </div>
           </main>

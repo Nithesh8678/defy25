@@ -9,6 +9,8 @@ import "./App.css";
 import WalletConnect from "./components/WalletConnect";
 import Home from "./components/Home";
 import ReportLostItem from "./components/ReportLostItem";
+import SubmitFoundItem from "./components/SubmitFoundItem";
+import ProfilePage from "./components/ProfilePage";
 
 function App() {
   const [account, setAccount] = useState("");
@@ -53,6 +55,16 @@ function App() {
           <Route
             path="/report-lost"
             element={account ? <ReportLostItem /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/submit-found"
+            element={account ? <SubmitFoundItem /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/profile"
+            element={
+              account ? <ProfilePage account={account} /> : <Navigate to="/" />
+            }
           />
         </Routes>
       </div>
