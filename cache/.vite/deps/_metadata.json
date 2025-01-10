@@ -1,0 +1,74 @@
+{
+  "hash": "d6114741",
+  "browserHash": "3da4dbca",
+  "optimized": {
+    "react": {
+      "src": "../../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "744ebc02",
+      "needsInterop": true
+    },
+    "react-dom": {
+      "src": "../../../node_modules/react-dom/index.js",
+      "file": "react-dom.js",
+      "fileHash": "ab47ecb9",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "60e3d822",
+      "needsInterop": true
+    },
+    "react/jsx-runtime": {
+      "src": "../../../node_modules/react/jsx-runtime.js",
+      "file": "react_jsx-runtime.js",
+      "fileHash": "296ae8f4",
+      "needsInterop": true
+    },
+    "@heroicons/react/24/outline": {
+      "src": "../../../../node_modules/@heroicons/react/24/outline/esm/index.js",
+      "file": "@heroicons_react_24_outline.js",
+      "fileHash": "12d524a3",
+      "needsInterop": false
+    },
+    "ethers": {
+      "src": "../../../node_modules/ethers/lib.esm/index.js",
+      "file": "ethers.js",
+      "fileHash": "7cfdd708",
+      "needsInterop": false
+    },
+    "framer-motion": {
+      "src": "../../../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "daec1c4f",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "1b094024",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "ca1c3527",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-UVR6FTNX": {
+      "file": "chunk-UVR6FTNX.js"
+    },
+    "chunk-2JCOJD2O": {
+      "file": "chunk-2JCOJD2O.js"
+    },
+    "chunk-X7GY54F7": {
+      "file": "chunk-X7GY54F7.js"
+    },
+    "chunk-IN47U6CF": {
+      "file": "chunk-IN47U6CF.js"
+    }
+  }
+}
