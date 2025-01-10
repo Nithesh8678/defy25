@@ -70,6 +70,41 @@
       "artifacts": [
         "LostAndFound"
       ]
+    },
+    "C:\\Users\\Nithesh\\lostify\\src\\contracts\\LostAndFound.sol": {
+      "lastModificationDate": 1736549240929,
+      "contentHash": "e3791f53ae5c5bf31bbf03d31a7f43bb",
+      "sourceName": "src/contracts/LostAndFound.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "LostAndFound"
+      ]
     }
   }
 }

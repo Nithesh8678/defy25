@@ -1,38 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Edit2, MapPin, Clock, Award } from "lucide-react";
 import Navbar from "./Navbar";
 import Button from "./ui/Button";
+import { useContract } from "../contexts/ContractContext";
 
 const ProfilePage = ({ account }) => {
+  const { getUserItems } = useContract();
+  const [items, setItems] = useState({ lostItems: [], foundItems: [] });
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      if (account) {
+        const userItems = await getUserItems(account);
+        setItems(userItems);
+      }
+    };
+
+    fetchItems();
+  }, [account]);
+
   const [activeTab, setActiveTab] = useState("lost");
-
-  // Dummy data - replace with actual data from your backend/blockchain
-  const lostItems = [
-    {
-      id: 1,
-      name: "iPhone 13",
-      category: "Electronics",
-      location: "Central Park",
-      date: "2024-02-15",
-      status: "Active",
-      bounty: "0.1 ETH",
-    },
-    // Add more items as needed
-  ];
-
-  const foundItems = [
-    {
-      id: 1,
-      name: "Wallet",
-      category: "Personal Items",
-      location: "Times Square",
-      date: "2024-02-10",
-      status: "Returned",
-      reward: "0.05 ETH",
-    },
-    // Add more items as needed
-  ];
 
   return (
     <div
@@ -126,47 +114,49 @@ const ProfilePage = ({ account }) => {
 
         {/* Items Grid */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {(activeTab === "lost" ? lostItems : foundItems).map((item) => (
-            <div
-              key={item.id}
-              className="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:bg-white/20 transition-colors duration-200"
-            >
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="text-xl font-semibold text-white">
-                    {item.name}
-                  </h3>
-                  <p className="text-purple-400 mt-1">{item.category}</p>
-                </div>
-                <span
-                  className={`px-3 py-1 rounded-full text-sm ${
-                    item.status === "Active"
-                      ? "bg-green-500/20 text-green-400"
-                      : "bg-blue-500/20 text-blue-400"
-                  }`}
-                >
-                  {item.status}
-                </span>
-              </div>
-              <div className="mt-4 space-y-2">
-                <div className="flex items-center gap-2 text-white/80">
-                  <MapPin className="h-4 w-4" />
-                  <span>{item.location}</span>
-                </div>
-                <div className="flex items-center gap-2 text-white/80">
-                  <Clock className="h-4 w-4" />
-                  <span>{item.date}</span>
-                </div>
-                <div className="mt-4 pt-4 border-t border-white/10">
-                  <span className="text-purple-400 font-medium">
-                    {activeTab === "lost"
-                      ? `Bounty: ${item.bounty}`
-                      : `Reward: ${item.reward}`}
+          {(activeTab === "lost" ? items.lostItems : items.foundItems).map(
+            (item) => (
+              <div
+                key={item.id}
+                className="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:bg-white/20 transition-colors duration-200"
+              >
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="text-xl font-semibold text-white">
+                      {item.name}
+                    </h3>
+                    <p className="text-purple-400 mt-1">{item.category}</p>
+                  </div>
+                  <span
+                    className={`px-3 py-1 rounded-full text-sm ${
+                      item.status === "Active"
+                        ? "bg-green-500/20 text-green-400"
+                        : "bg-blue-500/20 text-blue-400"
+                    }`}
+                  >
+                    {item.status}
                   </span>
                 </div>
+                <div className="mt-4 space-y-2">
+                  <div className="flex items-center gap-2 text-white/80">
+                    <MapPin className="h-4 w-4" />
+                    <span>{item.location}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-white/80">
+                    <Clock className="h-4 w-4" />
+                    <span>{item.date}</span>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-white/10">
+                    <span className="text-purple-400 font-medium">
+                      {activeTab === "lost"
+                        ? `Bounty: ${item.bounty}`
+                        : `Reward: ${item.reward}`}
+                    </span>
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
     </div>

@@ -18,5 +18,8 @@ module.exports = {
   },
   paths: {
     artifacts: "./src/artifacts",
+    sources: "./src/contracts",
+    cache: "./cache",
+    tests: "./test",
   },
 };

@@ -1,10 +1,43 @@
+import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import Input from "./ui/Input";
 import Button from "./ui/Button";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
+import { useContract } from "../contexts/ContractContext";
 
 const ReportLostItem = () => {
+  const { reportLostItem } = useContract();
+  const [formData, setFormData] = useState({
+    name: "",
+    category: "",
+    location: "",
+    imageUrl: "",
+    bounty: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const success = await reportLostItem(
+        formData.name,
+        formData.category,
+        formData.location,
+        formData.imageUrl,
+        new Date().toISOString(),
+        formData.bounty
+      );
+
+      if (success) {
+        alert("Item reported successfully!");
+        // Reset form or redirect
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Error reporting item");
+    }
+  };
+
   return (
     <div
       className="min-h-screen relative"
